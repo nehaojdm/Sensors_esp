@@ -1,0 +1,40 @@
+🧭 Additional Feature: Ultrasonic Distance Measurement
+This part of the project measures distance using an HC-SR04 Ultrasonic Sensor and prints the result to the Serial Monitor.
+
+🧰 Components
+HC-SR04 Ultrasonic Sensor
+
+NodeMCU
+
+Jumper wires
+
+⚙️ Wiring
+HC-SR04 Pin	NodeMCU Pin
+VCC	3V3
+GND	GND
+TRIG	D5 (GPIO14)
+ECHO	D6 (GPIO12)
+
+💻 Code Logic
+cpp
+Copy
+Edit
+#define TRIG_PIN D5
+#define ECHO_PIN D6
+
+digitalWrite(TRIG_PIN, LOW);
+delayMicroseconds(2);
+digitalWrite(TRIG_PIN, HIGH);
+delayMicroseconds(10);
+digitalWrite(TRIG_PIN, LOW);
+
+duration = pulseIn(ECHO_PIN, HIGH);
+distance = (duration * 0.0343) / 2;
+The trigger pin sends a 10µs pulse.
+
+The echo pin receives the reflected pulse and calculates the duration.
+
+Distance is calculated using the speed of sound.
+
+🖥️ Output
+Check the Serial Monitor in Arduino IDE (9600 baud) to view real-time distance in centimeters.
