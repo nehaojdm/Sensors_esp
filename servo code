@@ -1,0 +1,27 @@
+// Include the Servo library to control servo motor
+#include <Servo.h>
+
+// Create a Servo object to control the servo motor
+Servo myServo;
+
+void setup() {
+  // Attach the servo signal wire to pin D7 (GPIO13) of the NodeMCU
+  // Make sure the servo's power comes from a proper 5V source if it draws more current
+  myServo.attach(D7);  // Avoid D8 due to boot conflict on NodeMCU
+}
+
+void loop() {
+  // Move the servo to 0 degrees
+  myServo.write(0);
+  delay(1000);  // Wait for 1 second
+
+  // Move the servo to 90 degrees (middle position)
+  myServo.write(90);
+  delay(1000);  // Wait for 1 second
+
+  // Move the servo to 180 degrees (maximum rotation)
+  myServo.write(180);
+  delay(1000);  // Wait for 1 second
+
+  // The loop will repeat indefinitely
+}
