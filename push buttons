@@ -1,0 +1,60 @@
+# NodeMCU OLED Button Display
+
+This project demonstrates how to use an **OLED display** with a **NodeMCU** to show messages based on the state of two **push buttons**.
+
+## 🛠️ Features
+
+- Displays text on a 128x64 OLED screen using the Adafruit SSD1306 library.
+- Reads two push buttons connected to GPIO0 and GPIO2 (D3 and D4).
+- Updates the OLED display dynamically based on button input.
+
+## 🧰 Hardware Required
+
+- NodeMCU (ESP8266)
+- SSD1306 128x64 OLED Display (I2C)
+- 2x Push Buttons
+- Jumper wires
+- Breadboard
+
+## ⚙️ Wiring
+
+| Component      | NodeMCU Pin |
+|----------------|-------------|
+| OLED VCC       | 3V3         |
+| OLED GND       | GND         |
+| OLED SDA       | D2 (GPIO4)  |
+| OLED SCL       | D1 (GPIO5)  |
+| Button 1       | D3 (GPIO0)  |
+| Button 2       | D4 (GPIO2)  |
+
+Both buttons are configured using internal pull-up resistors.
+
+## 🧪 Libraries Used
+
+Make sure to install the following libraries via the Arduino Library Manager:
+
+- [`Adafruit_GFX`](https://github.com/adafruit/Adafruit-GFX-Library)
+- [`Adafruit_SSD1306`](https://github.com/adafruit/Adafruit_SSD1306)
+
+## 🚀 Getting Started
+
+1. Open the `OLED_Button.ino` file in Arduino IDE.
+2. Select the **NodeMCU 1.0 (ESP-12E Module)** as your board.
+3. Connect your NodeMCU to your PC via USB.
+4. Upload the code.
+5. Press the buttons and see the message change on the OLED!
+
+## 💻 Code Overview
+
+```cpp
+#define BUTTON1_PIN D3
+#define BUTTON2_PIN D4
+
+if (digitalRead(BUTTON1_PIN) == LOW) {
+  // Show message 1
+}
+if (digitalRead(BUTTON2_PIN) == LOW) {
+  // Show message 2
+}
+
+
